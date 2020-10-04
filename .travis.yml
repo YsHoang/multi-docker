@@ -24,3 +24,17 @@ after_success:
     - docker push yshoang/multi-server
     - docker push yshoang/multi-worker
 
+deploy:
+    prorvider: elastickbeanstalk
+    region: "ap-southeast-1"
+    app: multi-docker
+    env: MultiDocker_env
+    bucket_name: elasticbeanstalk-ap-southeast-1-245933506054
+    bucket_path: multi-docker
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+
+
+
