@@ -17,7 +17,7 @@ const pgClient = new Pool({
   database: keys.pgDatabase,
   password: keys.pgPassword,
   port: keys.pgPort,
-  ssl: true, // yshoang added this line
+  ssl: { rejectUnauthorized: false }, // yshoang added this line
 });
 
 pgClient.on('connect', (client) => {
